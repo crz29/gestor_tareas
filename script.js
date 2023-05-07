@@ -19,7 +19,6 @@ let id=1;
 function addTodo(){
     //creo el containerFila con atributos y clases
     const div_todo = document.createElement("div");
-    const div_completa=document.createElement("div");
     const div_container = document.createElement("div");
     const checkbox = document.createElement("input");
     const parrafo = document.createElement("p");
@@ -27,8 +26,8 @@ function addTodo(){
     const button_submit = document.createElement("button");
     const icono = document.createElement("i");
 
-    const button_delette=document.createElement("button");
-    /*const icono_delette=document.createElement("i");*/
+    const btn_delete = document.createElement("button");
+    
 
     parrafo.innerHTML = input.value;
     //le doy estilo a los elementos
@@ -42,8 +41,8 @@ function addTodo(){
     button_submit.setAttribute("id",id++);
     icono.classList.add("fa-solid", "fa-arrow-right");
 
-    /*button_delette.classList.add("btn-delete")
-    icono_delette.classList.add("fa-regular", "fa-square-minus")*/
+    btn_delete.classList.add("btn-delete")
+    /*icono_delette.classList.add("fa-regular", "fa-square-minus")*/
 
     //Se forma toda la fila tarea(ubico todos los elementos)
     div_todo.appendChild(div_container);
@@ -58,39 +57,33 @@ function addTodo(){
 
     input.value="";
 
-   /*************************************************************** */
-   function eliminarTarea(id){
-       document.getElementById(id).parentElement.parentElement.remove();
-   }
+   /**************************************************************/ 
+   function eliminarTarea(){
+       document.querySelector("tarea_ingresada").parentElement.parentElement.remove();
+       
+   };
+        
+   btn_delete.addEventListener("click",()=>{
+    eliminarTarea(parrafo.getAttribute("tarea_ingresada"))
+});
    
-   button_delette.addEventListener("click", ()=>{
-       eliminarTarea(button_delette.getAttribute("id"));
-   })
-
-
-
-
     /*button_delette.classList.add("btn-submit")
     icono_delette.classList.add("fa-regular", "fa-square-minus")
 
     div_completa.appendChild(div_container);
     div_completa.appendChild(div_boton);
     div_container.appendChild(parrafo);
-    div_boton.appendChild(button_delette);
     button_delette.appendChild(icono_delette);*/
     
-
-
-
-    function moverTarea(id){
+    function moverTarea(){
         //se agrega todo la fila tarea al otro contenedor
-        icono.classList.replace(("fa-solid", "fa-arrow-right"),("fa-regular", "fa-square-minus"));
         
-        
-        
+        button_submit.replaceWith(btn_delete);
         container_completadas.appendChild(div_todo);
-        
+       
+        return(btn_delete);
 
+            
    };
 
 
@@ -113,23 +106,3 @@ btn_input.addEventListener("click",()=>{
     };
 
 });
-/*import deleteIcon from "./deleteicon";
-
-const checkComplete = () => {//arrow function
-    const i = document.createElement('i');//creamos el elemento botón
-    i.classList.add('far','fa-check-square','icon');
-    i.addEventListener('click', completeTask);//entre parentesis el EVENTO y la FUNCION a ejecutar cuando el usuario hace click)
-    return i;
-    
- };
-//Clase04: Inmediately invoked function expression (IIFE)..
-//..para esto creamos arriba de todo un arrow function
- const completeTask = (event) => {//creamos la funcion que se va a ejecutar una vez el usuario le de click a nuestro elemento checkComplete
-    const element = event.target;
-    element.classList.toggle('fas'); //con TOGGLE determinamos si existe o no la clase (el azul o no al hacer click)
-    element.classList.toggle('completeIcon');//CLASE que pone el color azul
-    element.classList.toggle('far');//remover clase "far"
-    
- };
-
- export default checkComplete; */

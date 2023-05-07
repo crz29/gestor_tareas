@@ -14,20 +14,21 @@ h1{
     margin-bottom: 2rem;
     margin-top: 2.5rem;
 }
-.inicio{
-     margin-left: 2rem;
+
+.container_input{
+    width: 100%;
+    display: flex;
     padding: 2rem;
     justify-content: center;
-    align-content: space-between;
-    
+        
+}
+.input{
+    width: 40%;
 }
 
-
-    
-
 .btn_input{
-    padding: 10px;
-    background: rgb(14, 177, 192);
+    padding: 15px;
+    background: rgb(35, 88, 93);
     color: white;
     cursor: pointer;
     outline: none;
@@ -90,7 +91,7 @@ h2{
     justify-content: space-around;
     font-size: 1.5rem;
 }
-.box{
+#box{
     position: relative;
     margin-right: 0.8rem;
     margin-left: 0.5rem;
@@ -98,6 +99,7 @@ h2{
 }
 .container_list_boton{
     cursor: pointer;
+    background-color: rgb(229, 193, 193);
     
 }
 .btn-submit{
@@ -105,6 +107,7 @@ h2{
     padding: 5px;
     background: none;
     border: none;
+    cursor: pointer;
     
 }
 .fa-arrow-right{
@@ -118,14 +121,14 @@ h2{
 
 
 .container_completadas{
-    flex-direction: column;
+    
     border: 3px solid black;
     border-radius: 10px;
     width: 40%;
-    height: 80vh;
+    height: 70vh;
     margin-top: 1rem;
     text-align: center;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     background: linear-gradient(
     109.6deg,
     rgba(62, 161, 219, 1) 11.2%,
@@ -154,8 +157,10 @@ p{
 }
 .btn-delete{
     font-size: 1.5rem;
+    color: aliceblue;
     padding: 5px;
-    background: none;
-    border: none;
+    background: red;
+    border: black;
+    cursor: pointer;
 }
 
